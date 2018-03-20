@@ -30,4 +30,14 @@ class Vector {
         return this.x * vector.x + this.y + vector.y + this.z * vector.z;
     }
 
+    length() {
+        return Math.pow((this.x * this.x + this.y * this.y + this.z * this.z), 0.5);
+    }
+    
+    normalize() {
+        var length = length();
+        this.x /= length;
+        this.y /= length;
+        this.z /= length;
+    }
 }
