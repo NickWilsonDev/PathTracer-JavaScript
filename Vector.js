@@ -9,25 +9,22 @@ class Vector {
 
 // methods
     add(vector) {
-        this.x += vector.x;
-        this.y += vector.y;
-        this.z += vector.z;
+        return new Vector(this.x + vector.x, this.y + vector.y,
+                          this.z + vector.z);
     }
 
     sub(vector) {
-        this.x -= vector.x;
-        this.y -= vector.y;
-        this.z -= vector.z;
+        return new Vector(this.x - vector.x, this.y - vector.y,
+                          this.z - vector.z);
     }
 
     scale(scalar) {
-        this.x *= scalar;
-        this.y *= scalar;
-        this.z *= scalar;
+        return new Vector(this.x * scalar, this.y * scalar,
+                          this.z * scalar);
     }
 
     dot(vector) {
-        return this.x * vector.x + this.y + vector.y + this.z * vector.z;
+        return (this.x * vector.x + this.y + vector.y + this.z * vector.z);
     }
 
     length() {
@@ -39,5 +36,11 @@ class Vector {
         this.x /= length;
         this.y /= length;
         this.z /= length;
+    }
+
+    cross(vector) {
+        return new Vector(this.y * vector.z - this.z * vector.y,
+                          this.z * vector.x - this.x * vector.z,
+                          this.x * vector.y - this.y * vector.x);
     }
 }
